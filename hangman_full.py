@@ -1,8 +1,17 @@
 #04_08_hangman_full
 import random
-words=['chicken','dog','cat','mouse','frog']
+#words=['chicken','dog','cat','mouse','frog']
 lives_remaining=14
 guessed_letters=''
+
+words_file='hangman_words.txt'
+try:
+    f=open(words_file)
+    words=f.read().splitlines()
+    f.close()
+except IOError:
+    print('Cannot find file: '+words_file)
+    exit()
 
 def play():
 				word=pick_a_word()
